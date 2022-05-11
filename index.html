@@ -11,7 +11,7 @@
     <script src='./js/script.js' defer></script>
 </head>
 <body>
-    <h1>Books Finder</h1>
+    <!-- <h1>Books Finder</h1>
     <img src="" alt="">
         <aside>
             <div class="info">
@@ -20,6 +20,19 @@
                 <h6>Publication</h6>
             </div>
         </aside>
-    <input type="text"><input type="button">
+    <input type="text"><input type="button"> -->
+
+    <div id="content"></div>
+    <script>
+      function handleResponse(response) {
+      for (var i = 0; i < response.items.length; i++) {
+        var item = response.items[i];
+        // in production code, item.text should have the HTML entities escaped.
+        document.getElementById("content").innerHTML += "<br>" + item.volumeInfo.title;
+      }
+    }
+    </script>
+    <script src="https://www.googleapis.com/books/v1/volumes?q=harry+potter&callback=handleResponse"></script>
+    
 </body>
 </html>
