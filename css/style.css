@@ -1,21 +1,41 @@
+main {
+    display: grid;
+    /* grid-template-columns: 1fr 1fr; */
+    /* grid-template-rows: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 5fr; */
+}
+
 h1 {
     text-align: center;
+}
+
+#selectedCover {
+
+}
+
+#summary {
+    min-height: 10px;
 }
 
 img {
     display: inline;
     margin: auto;
-
 }
 
 input {
     display: block;
+    flex-flow: wrap;
     justify-content: center;
     margin: 10px auto;
 }
 
 #results {
-    height: 500px;
+    border: 5px black;
+    border-style: groove;
+    padding: 5px;
+    width: auto;
+    height: 612px;
     overflow-y: auto;
-    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
 }
