@@ -1,24 +1,55 @@
+body {
+    background-image: linear-gradient(to bottom right, rgba(255, 250, 236, 0.8), rgba(240, 231, 207, 0.8));
+}
+
 main {
     display: grid;
-    /* grid-template-columns: 1fr 1fr; */
-    /* grid-template-rows: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 5fr; */
 }
 
 h1 {
     text-align: center;
+    font-family: 'Neuton', serif;
+    font-size: 72px;
+    text-shadow: 1px 1px 10px rgba(94, 94, 94, 0.408);
+    background: -webkit-linear-gradient(rgba(238, 238, 238, 0.422), rgb(180, 133, 58));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-#selectedCover {
-
+aside {
+    min-height: 250px;
+    max-width: 500px auto;
 }
+
+p {
+    width: 1000px;
+    font-family: 'Varela Round', sans-serif;
+    text-shadow: 1px 1px 4px rgba(94, 94, 94, 0.327);
+}
+
 
 #summary {
-    min-height: 10px;
+    min-height: 100px;
+    max-height: 100px;
+    overflow-y: auto;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(225, 225, 225, 0.8));
 }
 
+/* images */
+#selectedCover {
+    display: block;
+    margin: auto;
+}
 img {
     display: inline;
-    margin: auto;
+    margin: 5px auto;
+    box-shadow: 1px 1px 5px black;
+}
+img:hover {
+    box-shadow: 2px 2px 10px black;;
+}
+img:active {
+    box-shadow: 1px 1px 3px black;
 }
 
 input {
@@ -26,14 +57,20 @@ input {
     flex-flow: wrap;
     justify-content: center;
     margin: 10px auto;
+    box-shadow: 1px 1px 8px rgb(49, 49, 49);
+}
+
+#field {
+    border: none;
+    /* color: gray; */
 }
 
 #results {
-    border: 5px black;
-    border-style: groove;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(182, 182, 182, 0.8));
+    border: rgba(163, 163, 163, 0.8);
     padding: 5px;
-    width: auto;
-    height: 612px;
+    width: 500px auto;
+    height: 600px;
     overflow-y: auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
