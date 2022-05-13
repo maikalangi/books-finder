@@ -28,14 +28,14 @@ function handleGetData(event) {
         
         $(axs).each(i=>{
             
-            const $result = $('<img>');
+            const $result = $('<img id="query">');
 
             $section.append
             ($result.attr('src', axs[i].imageLinks.thumbnail));
                 
                 $result.on('click', ()=>{
                     console.log(axs[i]);
-                    
+                    $section.detach($result);
                     $title.text(axs[i].title);
                     $author.text(axs[i].authors);
                     $date.text(axs[i].publishedDate);
