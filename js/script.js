@@ -1,36 +1,61 @@
-// const key = 'AIzaSyCeRKMon4_VVEskljoG-PvfJOPbse5qIPY'
+// variables
+const url = 'https://www.googleapis.com/books/v1/volumes?q=';
+const key = '&key=AIzaSyCeRKMon4_VVEskljoG-PvfJOPbse5qIPY'
 
-// var GoogleAuth; // Google Auth object.
-// function initClient() {
-//   gapi.client.init({
-//       'apiKey': key,
-//       'clientId': 'YOUR_CLIENT_ID',
-//       'scope': 'https://www.googleapis.com/auth/drive.metadata.readonly',
-//       'discoveryDocs': ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest']
-//   }).then(function () {
-//       GoogleAuth = gapi.auth2.getAuthInstance();
+// element references
+const $cover = $('img');
+const $title = $('#title');
+const $author = $('#author');
+const $date = $('#date');
+const $summary = $('#summary');
+const $form = $('form');
+const $input = $('input[type="text"]');
+const $section = $('#results');
 
-//       // Listen for sign-in state changes.
-//       GoogleAuth.isSignedIn.listen(updateSigninStatus);
-//   });
-// }
+// event listeners
+$form.on('submit', handleGetData);
 
-// // Example 1: Use method-specific function
-// var request = gapi.client.drive.about.get({'fields': 'user'});
+// functions
+function handleGetData(event) {
 
-// // Execute the API request.
-// request.execute(function(response) {
-//   console.log(response);
-// });
+    event.preventDefault();
+    const userInput = $input.val();
 
+    $.ajax(url + userInput + key + '&maxResults=40').then((data) => {
+        const axs = data.items.map(more=>more.volumeInfo);
+        // console.log(axs);
+        const arr = [];
+        
+        $(axs).each(i=>{
+            // console.log(axs[i]);
+            const $result = $('<img>');
+            // const $wrap = $(`<a href='${axs[i]}'>`);
 
-// // Example 2: Use gapi.client.request(args) function
-// var request = gapi.client.request({
-//   'method': 'GET',
-//   'path': '/drive/v3/about',
-//   'params': {'fields': 'user'}
-// });
-// // Execute the API request.
-// request.execute(function(response) {
-//   console.log(response);
-// });
+            // $section.append
+            // ($wrap.attr('href', axs[i]))
+
+            // $result.wrap($wrap);
+            $section.append
+            ($result.attr('src', axs[i].imageLinks.thumbnail));
+                $result.on('click', ()=>{
+                    console.log(axs[i]);
+                    $title.text(axs[i].title);
+                    $author.text(axs[i].authors);
+                    $date.text(axs[i].publishedDate);
+                    $summary.text(axs[i].description);
+                    $('img').attribute('src', `${axs[i].imageLinks.thumbnail}`);
+                    }
+                )
+            }
+        );
+    },
+    (error) => {
+         console.log('bad request', error);
+     });
+};
+
+// $title.text('');
+// $author.text('');
+// $date.text('');
+// $summary.text('');
+// $cover.attribute(src=`${axs[i].imageLinks.thumbnail}`);
