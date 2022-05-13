@@ -25,11 +25,6 @@ function handleGetData(event) {
         
         const axs = data.items.map(more=>more.volumeInfo);
         const arr = [];
-        // const $result = ();
-        
-        // if (!!$result){
-        //     $result.remove();
-        // };
 
         $(axs).each(i=>{
             
@@ -40,7 +35,6 @@ function handleGetData(event) {
                 
                 $result.on('click', ()=>{
                     console.log(axs[i]);
-                    // $input.text.remove();
 
                     $title.text(axs[i].title);
                     $author.text(axs[i].authors);
@@ -57,9 +51,3 @@ function handleGetData(event) {
          console.log('bad request', error);
      });
 };
-
-// $title.text('');
-// $author.text('');
-// $date.text('');
-// $summary.text('');
-// $cover.attribute(src=`${axs[i].imageLinks.thumbnail}`);
