@@ -19,27 +19,19 @@
 <body>
 
     <main id="container">
-
         <h1>Book Finder</h1>
-        <img id="selectedCover">
+        
+        <div id="show">
+            <img id="selectedCover" />
+            <p id='title'></p>
+            <p id='author'></p>
+            <p id="date"></p>
+            <p id="summary"></p>
+        </div>
 
-        <aside class="info">
-
-                <!-- <h6>Title</h6> -->
-                <p id='title'></p>
-                <!-- <h6>Author</h6> -->
-                <p id='author'></p>
-                <!-- <h6>Publication</h6> -->
-                <p id="date"></p>
-                <!-- <h6>Description</h6> -->
-                <p id="summary"></p>
-                
-        </aside>
-
-        <form action="">
-
-            <input id='field' type="text"><input id="button" type="button" >
-
+        <form id="searchForm" action="">
+            <input id='field' type="text" />
+            <input id="button" type="submit" value="Search" />
         </form>
 
         <section id="results"></section>

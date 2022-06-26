@@ -3,13 +3,15 @@ const url = 'https://www.googleapis.com/books/v1/volumes?q=';
 const key = '&key=AIzaSyCeRKMon4_VVEskljoG-PvfJOPbse5qIPY'
 
 // ELEMENT REFERENCES
-const $cover = $('img');
+const $showCover = $('#selectedCover');
 const $title = $('#title');
 const $author = $('#author');
 const $date = $('#date');
 const $summary = $('#summary');
-const $form = $('form');
-const $input = $('input[type="text"]');
+const $cover = $('img');
+const $form = $('#searchForm');
+const $button = $('#button');
+const $input = $('#field');
 const $section = $('#results');
 
 // EVENT LISTENERS
@@ -28,24 +30,21 @@ function handleGetData(event) {
 
         $(axs).each(i=>{
             
-            const $result = $('<img id="query">');
+            const $result = $('<img class="query">');
 
-            $section.append
+            $section.prepend
             ($result.attr('src', axs[i].imageLinks.thumbnail));
                 
-                $result.on('click', ()=>{
-                    console.log(axs[i]);
-
-                    $title.text(axs[i].title);
+            $result.on('click', ()=>{
+                // while (axs[i].hasOwnProperty() !== null) {      
+                    $showCover.attr('src', `${axs[i].imageLinks.thumbnail}`);
+                    $title.text((axs[i].title));
                     $author.text(axs[i].authors);
                     $date.text(axs[i].publishedDate);
                     $summary.text(axs[i].description);
-                    $cover.attribute('src', `${axs[i].imageLinks.thumbnail}`);
-                    
-                    }
-                )
-            }
-        );
+                // }
+            })
+        });
     },
     (error) => {
          console.log('bad request', error);
