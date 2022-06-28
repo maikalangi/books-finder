@@ -8,10 +8,13 @@ body {
 
 h1 {
     text-align: center;
-    font-family: 'Neuton', serif;
+    font-family: 'PT Sans Narrow', sans-serif;
     font-size: 72px;
-    text-shadow: 1px 1px 10px rgba(94, 94, 94, 0.408);
-    background: -webkit-linear-gradient(rgba(238, 238, 238, 0.422), rgb(180, 133, 58));
+    /* text-shadow: 1px 1px 10px rgba(94, 94, 94, 0.408); */
+    -webkit-text-stroke: 1px rgb(105, 105, 105, 0.3);
+    background: -webkit-linear-gradient(rgba(244, 181, 78, 0.422), rgb(180, 133, 58));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 aside {
@@ -58,8 +61,13 @@ input {
     flex-flow: wrap;
     justify-content: center;
     margin: 10px auto;
-    box-shadow: 1px 1px 3px rgb(49, 49, 49);
+    box-shadow: 0.5px 0.5px 3px rgb(49, 49, 49);
     border-radius: 10px;
+}
+
+#button {
+    border: 0.5px;
+    
 }
 
 #field {

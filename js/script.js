@@ -3,11 +3,8 @@ const url = 'https://www.googleapis.com/books/v1/volumes?q=';
 const key = '&key=AIzaSyCeRKMon4_VVEskljoG-PvfJOPbse5qIPY'
 
 // ELEMENT REFERENCES
-const $showCover = $('#selectedCover');
-const $title = $('#title');
-const $author = $('#author');
-const $date = $('#date');
-const $summary = $('#summary');
+
+const $container = $('#container');
 const $cover = $('img');
 const $form = $('#searchForm');
 const $button = $('#button');
@@ -31,18 +28,41 @@ function handleGetData(event) {
         $(axs).each(i=>{
             
             const $result = $('<img class="query">');
-
-            $section.prepend
+            
+            $section.append
             ($result.attr('src', axs[i].imageLinks.thumbnail));
                 
             $result.on('click', ()=>{
-                // while (axs[i].hasOwnProperty() !== null) {      
-                    $showCover.attr('src', `${axs[i].imageLinks.thumbnail}`);
-                    $title.text((axs[i].title));
-                    $author.text(axs[i].authors);
-                    $date.text(axs[i].publishedDate);
-                    $summary.text(axs[i].description);
-                // }
+                const $showCover = $(document.createElement('img'));
+                const $title = $(document.createElement('span'));
+                const $author = $(document.createElement('span'));
+                const $date = $(document.createElement('span'));
+                const $summary = $(document.createElement('p'));
+                const $show = $(document.createElement('div'));
+                $show.addClass('show');
+                $container.html($show);
+                $show.html($showCover);
+                $showCover.html($title);
+                $title.html($author);
+                $author.html($date);
+                $date.html($summary);
+                $showCover.append(
+                    $showCover.attr(
+                        'src', 
+                        `${axs[i].imageLinks.thumbnail}`)
+                ),
+                $title.append(
+                        $title.text((axs[i].title))
+                ),
+                $author.append(
+                    $author.text(axs[i].authors)
+                ),
+                $date.append(
+                    $date.text(axs[i].publishedDate)
+                ),
+                $summary.append(
+                    $summary.text(axs[i].description)
+                )
             })
         });
     },

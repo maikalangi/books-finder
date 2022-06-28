@@ -11,30 +11,30 @@
     <script src='./js/script.js' defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Neuton:wght@800&display=swap"  rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
 </head>
 <body>
+    <header>
+        <nav>
+            <form id="searchForm" action="">
+                <input id='field' type="text" />
+                <input id="button" type="submit" value="Search" />
+            </form>
+        </nav>
+        <h1>Book Finder</h1>
+    </header>
 
     <main id="container">
-        <h1>Book Finder</h1>
         
-        <div id="show">
-            <img id="selectedCover" />
-            <p id='title'></p>
-            <p id='author'></p>
-            <p id="date"></p>
-            <p id="summary"></p>
+        <div id="show">    
         </div>
 
-        <form id="searchForm" action="">
-            <input id='field' type="text" />
-            <input id="button" type="submit" value="Search" />
-        </form>
 
-        <section id="results"></section>
+        <section id="results">
+        </section>
     
     </main>
 
