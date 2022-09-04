@@ -4,8 +4,8 @@ A simple book search app that finds and displays info on books
 
 ## Technologies Used
 
-- HTML5
-- CSS3
+- HTML
+- CSS
 - Javascript
 - jQuery
 - Google Fonts
